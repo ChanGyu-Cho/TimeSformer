@@ -1,0 +1,46 @@
+pip install git+https://github.com/facebookresearch/fvcore --no-deps
+''가 없어야 한다
+
+conda install -n timesformer ipykernel --update-deps --force-reinstall
+이거있어야 vscode에서 ipynb kernel 쓸 수 있다
+
+conda env create -f environment.yml
+로 conda 가상환경 그대로 가져오기 가능
+
+
+
+1. 
+timesformer/models/resnet_helper.py 파일을 열고, 다음 줄을 삭제하거나 주석 처리하세요:
+
+python
+복사
+편집
+# from torch.nn.modules.linear import _LinearWithBias
+그리고 _LinearWithBias를 사용하는 코드가 있다면 (대부분 없음), nn.Linear 등으로 바꿔야 합니다.
+
+사실상 TimeSformer는 이 부분을 거의 사용하지 않기 때문에 삭제해도 작동합니다.
+
+2.
+🔧 방법 1: 코드 수정
+vit_utils.py 파일을 열어 다음 줄을 삭제하거나 수정합니다.
+
+▶ 위치
+파일:
+
+bash
+복사
+편집
+TimeSformer/timesformer/models/vit_utils.py
+줄:
+
+python
+복사
+편집
+from torch._six import container_abcs  # ❌ 이 줄 삭제
+만약 이후 코드에서 container_abcs.Sequence 등 사용하는 부분이 있다면, 다음처럼 바꾸세요:
+
+from collections.abc import Iterable
+
+# 수정된 코드
+isinstance(x, Iterable)
+
