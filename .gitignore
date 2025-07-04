@@ -141,3 +141,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# model file
+TimeSformer_divST_96x4_224_K600.pyth
