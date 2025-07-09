@@ -296,7 +296,6 @@ dependencies:
   - pip:
       - av==15.0.0
       - fsspec==2025.5.1
-      - fvcore==0.1.6
       - huggingface-hub==0.33.2
       - iopath==0.1.10
       - portalocker==3.2.0
