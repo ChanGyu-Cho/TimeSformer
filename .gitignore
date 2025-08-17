@@ -143,6 +143,4 @@ dmypy.json
 cython_debug/
 
 # model file
-TimeSformer_divST_96x4_224_K600.pyth
-TimeSformer_divST_16x16_448_K600.pyth
-TimeSformer_divST_8x32_224_K600.pyth
+pretrained/
